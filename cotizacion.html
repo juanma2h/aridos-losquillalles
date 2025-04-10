@@ -81,12 +81,21 @@
         </div>
     </footer>
     
+    <script src="js/scripts.js"></script>
+    
 <!-- haciendo el envio de correo -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script>
   emailjs.init('tBNE5p58H6EoB-ZnL'); // reemplaza con tu Public Key real
 </script>
+    
 
-    <script src="js/scripts.js"></script>
+<!-- Popup de estado del formulario -->
+<div id="popup" class="popup hidden">
+    <p id="popup-message"></p>
+    <button onclick="cerrarPopup()">Cerrar</button>
+</div>
+
+    
 </body>
 </html>
