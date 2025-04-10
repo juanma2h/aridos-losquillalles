@@ -23,97 +23,107 @@
 </head>
 
 <body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html" class="activo">Productos</a></li>
+        <li><a href="cotizacion.html">Cotización</a></li>
+        <li><a href="ubicacion.html">Ubicación</a></li>
+      </ul>
+    </nav>
+    <div class="llamanos">
+      <a href="tel:+56978422087" class="btn-llamar">📞 Llámanos</a>
+    </div>
+  </header>
 
-<!-- Loader animado -->
-<!--div id="loader"-->
-  <!--div class="spinner"></div-->
-<!--/div-->
+  <main class="fade-in">
+    <section id="intro">
+      <h1>Nuestros Productos</h1>
+      <p>Conoce la variedad de áridos que ofrecemos para tus proyectos de construcción, paisajismo y más.</p>
+    </section>
 
-    <!-- Header -->
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="productos.html">Productos</a></li>
-                <li><a href="cotizacion.html">Cotización</a></li>
-                <li><a href="ubicacion.html">Ubicación</a></li>
-            </ul>
-            <!--button id="themeToggle" class="theme-toggle">🌙 Modo oscuro</button-->
-        </nav>
-            <div class="llamanos">
-            <a href="tel:+56978422087" class="btn-llamar">📞 Llámanos</a>
-    </header>
-
-    <!-- Contenido principal -->
-    <main class="fade-in">
-        <section id="intro">
-            <h1>Nuestros Productos</h1>
-            <p>Conoce la variedad de áridos que ofrecemos para tus proyectos de construcción, paisajismo y más.</p>
-        </section>
-
-        <section id="productos" class="grid-productos">
-            <!-- Producto -->
-            <article class="producto-card" id="arena_fina">
-                <img src="images/arena_fina.webp" alt="Arena Fina">
-                <div class="info">
-                    <h2>Arena Fina</h2>
-                    <p>Ideal para mezclas de concreto, filtración de agua y acabados delicados.</p>
-                </div>
-            </article>
-
-            <article class="producto-card" id="arena_gruesa">
-                <img src="images/arena_gruesa.webp" alt="Arena Gruesa">
-                <div class="info">
-                    <h2>Arena Gruesa</h2>
-                    <p>Perfecta para cimientos, pisos y obras estructurales.</p>
-                </div>
-            </article>
-
-            <article class="producto-card" id="relleno">
-                <img src="images/relleno.webp" alt="Relleno">
-                <div class="info">
-                    <h2>Relleno</h2>
-                    <p>Usado para nivelación de terrenos, soporte y compactación.</p>
-                </div>
-            </article>
-
-            <article class="producto-card" id="base_estabilizada">
-                <img src="images/base_estabilizada.webp" alt="Base Estabilizada">
-                <div class="info">
-                    <h2>Base Estabilizada</h2>
-                    <p>Ideal para construcción de caminos y fundaciones resistentes.</p>
-                </div>
-            </article>
-
-            <article class="producto-card" id="grava">
-                <img src="images/grava.webp" alt="Grava">
-                <div class="info">
-                    <h2>Grava</h2>
-                    <p>Excelente para hormigón, drenajes y superficies exteriores.</p>
-                </div>
-            </article>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div id="contacto">
-            <p><i class="fas fa-phone-alt"></i> <a href="tel:+56978422087">Llámanos</a></p>
-            <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/56988389703" target="_blank">WhatsApp</a></p>
+    <section id="productos" class="grid-productos">
+      <article class="producto-card" id="arena_fina">
+        <img src="images/arena_fina.webp" alt="Arena Fina">
+        <div class="info">
+          <h2>Arena Fina</h2>
+          <p>Ideal para mezclas de concreto, filtración de agua, pavimentación y jardinería.</p>
         </div>
-    </footer>
+      </article>
 
-  
-  <!-- Botón flotante de WhatsApp con imagen y tooltip -->
-<div class="whatsapp-wrapper">
-  <a href="https://wa.me/56988389703" class="whatsapp-float" target="_blank" title="Chatea con nosotros">
-    <img src="images/whatsapp-icon.png" alt="WhatsApp">
-    <span class="tooltip">¿Tienes dudas? ¡Chatea con nosotros!</span>
-  </a>
-</div>
+      <article class="producto-card" id="arena_gruesa">
+        <img src="images/arena_gruesa.webp" alt="Arena Gruesa">
+        <div class="info">
+          <h2>Arena Gruesa</h2>
+          <p>Utilizada en cimientos, mezclas resistentes y pavimentos duraderos.</p>
+        </div>
+      </article>
 
-    <script src="js/scripts.js"></script>
- 
+      <article class="producto-card" id="relleno">
+        <img src="images/relleno.webp" alt="Relleno">
+        <div class="info">
+          <h2>Relleno</h2>
+          <p>Perfecto para nivelación de terrenos, estabilización de suelos y base de caminos.</p>
+        </div>
+      </article>
 
+      <article class="producto-card" id="escarpe">
+        <img src="images/escarpe.webp" alt="Escarpe">
+        <div class="info">
+          <h2>Escarpe</h2>
+          <p>Relleno ideal para caminos rústicos, emparejamiento y bases firmes.</p>
+        </div>
+      </article>
+
+      <article class="producto-card" id="estabilizado_natural">
+        <img src="images/estabilizado_natural.webp" alt="Estabilizado Natural">
+        <div class="info">
+          <h2>Estabilizado Natural</h2>
+          <p>Recomendado para áreas de bajo tráfico, obras simples o pavimentos temporales.</p>
+        </div>
+      </article>
+
+      <article class="producto-card" id="base_estabilizada">
+        <img src="images/base_estabilizada.webp" alt="Base Estabilizada">
+        <div class="info">
+          <h2>Base Estabilizada</h2>
+          <p>Base sólida para carreteras, pavimentos y estructuras de alto peso.</p>
+        </div>
+      </article>
+
+      <article class="producto-card" id="grava">
+        <img src="images/grava.webp" alt="Grava">
+        <div class="info">
+          <h2>Grava</h2>
+          <p>Para hormigones de alta resistencia, fundaciones y grandes infraestructuras.</p>
+        </div>
+      </article>
+
+      <article class="producto-card" id="gravilla">
+        <img src="images/gravilla.webp" alt="Gravilla">
+        <div class="info">
+          <h2>Gravilla</h2>
+          <p>Ideal para caminos, drenajes pluviales y proyectos livianos.</p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <div id="contacto">
+      <p><a href="tel:+56978422087">📞 Llámanos</a></p>
+      <p><a href="https://wa.me/56988389703" target="_blank">💬 WhatsApp</a></p>
+    </div>
+  </footer>
+
+  <div class="whatsapp-wrapper">
+    <a href="https://wa.me/56988389703" class="whatsapp-float" target="_blank" title="Chatea con nosotros">
+      <img src="images/whatsapp-icon.png" alt="WhatsApp">
+      <span class="tooltip">¿Tienes dudas? ¡Chatea con nosotros!</span>
+    </a>
+  </div>
+
+  <script src="js/scripts.js"></script>
 </body>
 </html>
