@@ -1,49 +1,40 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Solicita una cotización para áridos en Los Ángeles, Chile.">
-    <title>Cotización - Áridos Los Quillalles</title>
-    <link rel="stylesheet" href="css/styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Solicita una cotización para áridos en Los Ángeles, Chile.">
+  <title>Cotización - Áridos Los Quillalles</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>
+    emailjs.init('tBNE5p58H6EoB-ZnL'); // ✅ Tu public key
+  </script>
 </head>
 <body>
 
-    <!-- Loader -->
-    <!--div id="loader" class="loader"-->
-        <!--span>Cargando...</span-->
-    <!--/div-->
-    
-    <!-- Loader animado -->
-    <!--div id="loader"-->
-      <!--div class="spinner"></div-->
-    <!--/div>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="cotizacion.html" class="activo">Cotización</a></li>
+        <li><a href="ubicacion.html">Ubicación</a></li>
+      </ul>
+    </nav>
+    <div class="llamanos">
+      <a href="tel:+56978422087" class="btn-llamar">📞 Llámanos</a>
+    </div>
+  </header>
 
-    <!-- Header -->
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="productos.html">Productos</a></li>
-                <li><a href="cotizacion.html">Cotización</a></li>
-                <li><a href="ubicacion.html">Ubicación</a></li>
-            </ul>
-            <!--button id="themeToggle" class="theme-toggle">🌙 Modo oscuro</button -->
-        </nav>
-            <div class="llamanos">
-            <a href="tel:+56978422087" class="btn-llamar">📞 Llámanos</a>
-    </header>
+  <main class="fade-in">
+    <section id="intro">
+      <h1>Solicita tu Cotización</h1>
+      <p>Completa el formulario y te responderemos lo antes posible con toda la información necesaria para tu proyecto.</p>
+    </section>
 
-    <!-- Contenido principal -->
-    <main class="fade-in">
-        <section id="intro">
-            <h1>Solicita tu Cotización</h1>
-            <p>Completa el formulario y te responderemos lo antes posible con toda la información necesaria para tu proyecto.</p>
-        </section>
-
-        <section id="formulario-cotizacion">
-    <!--h1>Solicita tu Cotización</h1-->
-    <form id="cotizacionForm" novalidate>
+    <section id="formulario-cotizacion">
+      <form id="cotizacionForm" novalidate>
         <label for="nombre">Nombre completo *</label>
         <input type="text" id="nombre" name="nombre" required>
 
@@ -55,12 +46,11 @@
 
         <label for="producto">Producto *</label>
         <select id="producto" name="producto" required>
-            <option value="">Seleccione un producto</option>
-            <option value="arena_fina">Arena Fina</option>
-            <option value="grava">Grava</option>
-            <option value="relleno">Relleno</option>
-            <option value="estabilizado">Estabilizado Natural</option>
-            <!-- agrega más según lo que ofrezcas -->
+          <option value="">Seleccione un producto</option>
+          <option value="arena_fina">Arena Fina</option>
+          <option value="grava">Grava</option>
+          <option value="relleno">Relleno</option>
+          <option value="estabilizado">Estabilizado Natural</option>
         </select>
 
         <label for="mensaje">Mensaje</label>
@@ -68,34 +58,63 @@
 
         <button type="submit">Enviar</button>
         <p id="form-status" class="estado"></p>
-    </form>
-</section>
+      </form>
+    </section>
+  </main>
 
-    </main>
+  <footer>
+    <div id="contacto">
+      <p><a href="tel:+56978422087">📞 Llámanos</a></p>
+      <p><a href="https://wa.me/56988389703" target="_blank">💬 WhatsApp</a></p>
+    </div>
+  </footer>
 
-    <!-- Footer -->
-    <footer>
-        <div id="contacto">
-            <p><i class="fas fa-phone-alt"></i> <a href="tel:+56978422087">Llámanos</a></p>
-            <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/56988389703" target="_blank">WhatsApp</a></p>
-        </div>
-    </footer>
-    
-    <script src="js/scripts.js"></script>
-    
-<!-- haciendo el envio de correo -->
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script>
-  emailjs.init('tBNE5p58H6EoB-ZnL'); // reemplaza con tu Public Key real
-</script>
-    
-
-<!-- Popup de estado del formulario -->
-<div id="popup" class="popup hidden">
+  <!-- POPUP -->
+  <div id="popup" class="popup hidden">
     <p id="popup-message"></p>
     <button onclick="cerrarPopup()">Cerrar</button>
-</div>
+  </div>
 
-    
+  <!-- JS -->
+  <script src="js/scripts.js"></script>
+  <script>
+    // Popup
+    function mostrarPopup(mensaje, color = "#4caf50") {
+      const popup = document.getElementById("popup");
+      const mensajeEl = document.getElementById("popup-message");
+
+      if (popup && mensajeEl) {
+        mensajeEl.textContent = mensaje;
+        mensajeEl.style.color = color;
+        popup.classList.remove("hidden");
+      }
+    }
+
+    function cerrarPopup() {
+      document.getElementById("popup").classList.add("hidden");
+    }
+
+    // Envío del formulario con EmailJS
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById("cotizacionForm");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        if (form.checkValidity()) {
+          emailjs.sendForm('service_0wt64co', 'template_cotizacion', form) // ✅ Usa tu service y template
+            .then(function () {
+              mostrarPopup("✅ ¡Mensaje enviado correctamente!");
+              form.reset();
+            }, function (error) {
+              mostrarPopup("❌ Error al enviar. Inténtalo nuevamente.", "#c62828");
+              console.error(error);
+            });
+        } else {
+          mostrarPopup("❌ Por favor completa los campos obligatorios correctamente.", "#c62828");
+        }
+      });
+    });
+  </script>
 </body>
 </html>
