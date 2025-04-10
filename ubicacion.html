@@ -24,78 +24,78 @@
 
 <body>
 
-    <!-- Loader animado -->
-    <!--div id="loader"-->
-      <!--div class="spinner"></div-->
-    <!--/div-->
+  <!-- Header -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="cotizacion.html">Cotización</a></li>
+        <li><a href="ubicacion.html" class="activo">Ubicación</a></li>
+      </ul>
+    </nav>
+    <div class="llamanos">
+      <a href="tel:+56978422087" class="btn-llamar">📞 Llámanos</a>
+    </div>
+  </header>
 
-    <!-- Header -->
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="productos.html">Productos</a></li>
-                <li><a href="cotizacion.html">Cotización</a></li>
-                <li><a href="ubicacion.html">Ubicación</a></li>
-            </ul>
-            <!--button id="themeToggle" class="theme-toggle">🌙 Modo oscuro</button-->
-        </nav>
-        <div class="llamanos">
-        <a href="tel:+56978422087" class="btn-llamar">📞 Llámanos</a>
-    </header>
+  <!-- Contenido principal -->
+  <main class="fade-in">
+    <section id="ubicacion">
+      <h1>¿Dónde estamos?</h1>
+      <p>Encuéntranos fácilmente en la Región del Biobío. Estamos ubicados en una zona estratégica para distribución rápida.</p>
 
-    <!-- Contenido principal -->
-    <main class="fade-in">
-        <section id="intro">
-            <h1>¿Dónde estamos?</h1>
-            <p>Encuéntranos fácilmente en la Región del Biobío. Estamos ubicados en una zona estratégica para distribución rápida.</p>
-        </section>
-
-        <section id="mapa" style="padding: 2em;">
-            <h2>Dirección</h2>
-            <p>
-                Ruta 5 Sur, km 495, Las Hijuela Curanadu, Región del Biobío. <br>
-                También conocido como <strong>Rancho Curanadu</strong>.
-            </p>
-
-            <div class="mapa-container">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3181.3433100615046!2d-71.83409618495912!3d-37.103456479885576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x966b3d3273dba8e9%3A0x20e8cba816d8d3e7!2sRancho%20Curanadu!5e0!3m2!1ses-419!2scl!4v1680123456789"
-                    width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-
-            <div class="info-contacto">
-                <h3>Horarios de Atención</h3>
-                <ul>
-                    <li><strong>Lunes a Viernes:</strong> 08:00 – 18:00 hrs</li>
-                    <li><strong>Sábados:</strong> 08:00 – 13:00 hrs</li>
-                    <li><strong>Domingo:</strong> Cerrado</li>
-                </ul>
-
-                <h3>Teléfono & WhatsApp</h3>
-                <p><a href="tel:+56978422087">📞 +56 9 7842 2087</a></p>
-                <p><a href="https://wa.me/56988389703" target="_blank">💬 +56 9 8838 9703</a></p>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div id="contacto">
-            <p><i class="fas fa-phone-alt"></i> <a href="tel:+56978422087">Llámanos</a></p>
-            <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/56988389703" target="_blank">WhatsApp</a></p>
+      <div class="ubicacion-info">
+        <div class="direccion">
+          <h2>Dirección</h2>
+          <p>
+            Ruta 5 Sur, km 495<br>
+            Las Hijuela Curanadu, Región del Biobío.<br>
+            <em>También conocido como <strong>Rancho Curanadu</strong>.</em>
+          </p>
+          <a class="btn-mapa" href="https://www.google.com/maps?q=-37.348647971979375,-72.37223228872689" target="_blank">
+            📍 Abrir en Google Maps
+          </a>
         </div>
-    </footer>
 
-  <!-- Botón flotante de WhatsApp con imagen y tooltip -->
-<div class="whatsapp-wrapper">
-  <a href="https://wa.me/56988389703" class="whatsapp-float" target="_blank" title="Chatea con nosotros">
-    <img src="images/whatsapp-icon.png" alt="WhatsApp">
-    <span class="tooltip">¿Tienes dudas? ¡Chatea con nosotros!</span>
-  </a>
-</div>
+        <div class="mapa-container">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3171.7406625140693!2d-72.37223228872689!3d-37.348647971979375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzfCsDIwJzU1LjEiUyA3MsKwMjInMTAuOCJX!5e0!3m2!1ses-419!2scl!4v1744298449046!5m2!1ses-419!2scl"
+            width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
 
-  
+      <div class="info-contacto">
+        <h3>Horarios de Atención</h3>
+        <ul>
+          <li><strong>Lunes a Viernes:</strong> 08:00 – 18:00 hrs</li>
+          <li><strong>Sábados:</strong> 08:00 – 13:00 hrs</li>
+          <li><strong>Domingo:</strong> Cerrado</li>
+        </ul>
+
+        <h3>Teléfono & WhatsApp</h3>
+        <p><a href="tel:+56978422087">📞 +56 9 7842 2087</a></p>
+        <p><a href="https://wa.me/56988389703" target="_blank">💬 +56 9 8838 9703</a></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div id="contacto">
+      <p><i class="fas fa-phone-alt"></i> <a href="tel:+56978422087">Llámanos</a></p>
+      <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/56988389703" target="_blank">WhatsApp</a></p>
+    </div>
+  </footer>
+
+  <!-- Botón flotante de WhatsApp -->
+  <div class="whatsapp-wrapper">
+    <a href="https://wa.me/56988389703" class="whatsapp-float" target="_blank" title="Chatea con nosotros">
+      <img src="images/whatsapp-icon.png" alt="WhatsApp">
+      <span class="tooltip">¿Tienes dudas? ¡Chatea con nosotros!</span>
+    </a>
+  </div>
+
 </body>
 </html>
