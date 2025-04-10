@@ -4,25 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Cotización - Áridos Los Quillalles | Solicita tu presupuesto online</title>
-
-  <meta name="description" content="Solicita una cotización personalizada de áridos en Los Ángeles, Chile. Rápido, fácil y online." />
-  <meta name="keywords" content="cotización áridos, pedir presupuesto arena, solicitar precio grava, cotizar relleno, formulario áridos Los Ángeles" />
+  <title>Cotización - Áridos Los Quillalles</title>
+  <meta name="description" content="Solicita una cotización personalizada de áridos en Los Ángeles, Chile." />
+  <meta name="keywords" content="cotización áridos, presupuesto arena, solicitar grava" />
   <meta name="author" content="Áridos Los Quillalles" />
   <meta name="robots" content="index, follow" />
 
-  <meta property="og:title" content="Solicita tu Cotización - Áridos Los Quillalles" />
-  <meta property="og:description" content="Completa el formulario y recibe tu cotización de forma rápida y directa." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://juanma2h.github.io/aridos-losquillalles/cotizacion.html" />
-  <meta property="og:image" content="https://juanma2h.github.io/aridos-losquillalles/images/estabilizado_natural.jpg" />
+  <!-- EmailJS -->
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+    (function() {
+      emailjs.init("tBNE5p58H6EoB-ZnL"); // Tu public key
+    })();
+  </script>
 
-  <link rel="icon" href="images/favicon.png" type="image/png" />
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="images/favicon.png" type="image/png" />
 </head>
 
 <body>
-
   <header>
     <nav>
       <ul>
@@ -40,11 +40,11 @@
   <main class="fade-in">
     <section id="intro">
       <h1>Solicita tu Cotización</h1>
-      <p>Completa el formulario y te responderemos lo antes posible con toda la información necesaria para tu proyecto.</p>
+      <p>Completa el formulario y te responderemos lo antes posible con la información necesaria para tu proyecto.</p>
     </section>
 
     <section id="formulario-cotizacion">
-      <form id="cotizacionForm" novalidate>
+      <form id="cotizacionForm">
         <label for="nombre">Nombre completo *</label>
         <input type="text" id="nombre" name="nombre" required>
 
@@ -67,7 +67,6 @@
         <textarea id="mensaje" name="mensaje" rows="4" placeholder="Agrega detalles adicionales..."></textarea>
 
         <button type="submit">Enviar</button>
-        <p id="form-status" class="estado"></p>
       </form>
     </section>
   </main>
@@ -79,7 +78,7 @@
     </div>
   </footer>
 
-  <!-- POPUP -->
+  <!-- Popup de mensaje -->
   <div id="popup" class="popup hidden">
     <p id="popup-message"></p>
     <button onclick="cerrarPopup()">Cerrar</button>
@@ -87,45 +86,15 @@
 
   <!-- Botón flotante de WhatsApp -->
   <div class="whatsapp-wrapper">
-    <a href="https://wa.me/56988389703" class="whatsapp-float" target="_blank" title="Chatea con nosotros">
+    <a href="https://wa.me/56988389703" class="whatsapp-float" target="_blank">
       <img src="images/whatsapp-icon.png" alt="WhatsApp">
       <span class="tooltip">¿Tienes dudas? ¡Chatea con nosotros!</span>
     </a>
   </div>
 
-  <!-- EmailJS desde CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+  <!-- Scripts -->
   <script>
-    (function(){
-      emailjs.init("WJ1oIrcUkqHshX9Ff"); // <-- Asegúrate de usar tu propio User ID
-    })();
-  </script>
-
-  <!-- Script de envío -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const form = document.getElementById("cotizacionForm");
-
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-
-        if (!form.checkValidity()) {
-          mostrarPopup("❌ Por favor completa los campos obligatorios correctamente.", "#c62828");
-          return;
-        }
-
-        emailjs.sendForm('service_0wt64co', 'template_ggc0mnc', form)
-          .then(() => {
-            mostrarPopup("✅ ¡Mensaje enviado correctamente!");
-            form.reset();
-          })
-          .catch((error) => {
-            console.error("Error al enviar con EmailJS:", error);
-            mostrarPopup("❌ Ocurrió un error al enviar. Inténtalo de nuevo.", "#c62828");
-          });
-      });
-    });
-
+    // Mostrar popup
     function mostrarPopup(mensaje, color = "#4caf50") {
       const popup = document.getElementById("popup");
       const mensajeEl = document.getElementById("popup-message");
@@ -136,8 +105,34 @@
     }
 
     function cerrarPopup() {
-      document.getElementById("popup").classList.add("hidden");
+      const popup = document.getElementById("popup");
+      popup.classList.add("hidden");
     }
+
+    // Envío con EmailJS
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById("cotizacionForm");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        if (!form.checkValidity()) {
+          mostrarPopup("❌ Por favor completa todos los campos obligatorios.", "#c62828");
+          return;
+        }
+
+        emailjs.sendForm("service_0wt64co", "template_ggc0mnc", form)
+          .then(() => {
+            mostrarPopup("✅ ¡Mensaje enviado correctamente!");
+            form.reset();
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            mostrarPopup("❌ Error al enviar. Inténtalo nuevamente.", "#c62828");
+          });
+      });
+    });
   </script>
+
 </body>
 </html>
