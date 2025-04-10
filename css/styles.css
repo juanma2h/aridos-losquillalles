@@ -16,7 +16,7 @@
     --color-claro: #f5f5f5;
 }
 
-/* Dark mode */
+/* ===== Dark Mode ===== */
 body.dark-mode {
     --color-fondo: #121212;
     --color-texto: #eeeeee;
@@ -24,7 +24,7 @@ body.dark-mode {
     --color-claro: #1e1e1e;
 }
 
-/* ===== Base general ===== */
+/* ===== Base General ===== */
 body {
     font-family: 'Segoe UI', sans-serif;
     background-color: var(--color-fondo);
@@ -37,26 +37,47 @@ a {
     color: inherit;
 }
 
+a:focus, button:focus, input:focus, textarea:focus {
+    outline: 2px solid var(--color-principal);
+    outline-offset: 2px;
+}
+
 /* ===== Loader ===== */
-.loader {
+#loader {
     position: fixed;
-    width: 100vw;
-    height: 100vh;
-    background-color: var(--color-fondo);
-    color: var(--color-principal);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-fondo);
     display: flex;
-    align-items: center;
     justify-content: center;
-    font-size: 1.5em;
+    align-items: center;
     z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
-/* Ocultar loader después */
-body.loaded .loader {
-    display: none;
+#loader.hidden {
+    opacity: 0;
+    visibility: hidden;
 }
 
-/* ===== Fade-in animation al cargar ===== */
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 6px solid #ccc;
+    border-top: 6px solid var(--color-principal);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ===== Fade-in animation ===== */
 .fade-in {
     opacity: 0;
     animation: fadeIn 1s ease forwards;
@@ -90,35 +111,23 @@ nav ul {
     display: flex;
     gap: 15px;
     list-style: none;
-    justify-content: flex-start;
-    align-items: center;
-    flex-wrap: wrap;
     padding: 10px;
-    background-color: #222; /* Fondo oscuro para contraste */
+    background-color: #222;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
 }
+
 nav ul li a {
-    text-decoration: none;
     color: white;
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: #c62828;
+    color: var(--color-hover);
 }
 
-
-nav a {
-    color: #fff;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-nav a:hover {
-    color: var(--color-principal);
-}
-
-/* ===== Botón toggle modo oscuro ===== */
 .theme-toggle {
     background-color: transparent;
     border: 2px solid #fff;
@@ -135,7 +144,27 @@ nav a:hover {
     border-color: var(--color-principal);
 }
 
-/* ===== Intro ===== */
+/* ===== Botón llamar ===== */
+.llamanos {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    z-index: 999;
+}
+
+.btn-llamar {
+    background-color: var(--color-principal);
+    color: white !important;
+    padding: 8px 14px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.btn-llamar:hover {
+    background-color: var(--color-hover);
+}
+
+/* ===== Sección Intro ===== */
 #intro {
     text-align: center;
     padding: 3em 1em;
@@ -153,7 +182,7 @@ nav a:hover {
     font-size: 1.1em;
 }
 
-/* ===== Productos ===== */
+/* ===== Sección Productos ===== */
 #productos {
     padding: 3em 2em;
     max-width: 1200px;
@@ -176,8 +205,8 @@ nav a:hover {
     background-color: var(--color-fondo);
     border: 1px solid #e0e0e0;
     border-radius: 8px;
-    overflow: hidden;
     text-align: center;
+    overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -193,8 +222,8 @@ nav a:hover {
 }
 
 .producto h3 {
-    color: var(--color-secundario);
     margin-top: 1em;
+    color: var(--color-secundario);
 }
 
 body.dark-mode .producto h3 {
@@ -225,103 +254,7 @@ body.dark-mode .producto p {
     background-color: var(--color-hover);
 }
 
-/* ===== Footer ===== */
-footer {
-    background-color: var(--color-footer);
-    color: #fff;
-    text-align: center;
-    padding: 2em 1em;
-}
-
-footer a {
-    color: #ff8a80;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-footer a:hover {
-    color: #ffffff;
-}
-
-footer i {
-    margin-right: 0.5em;
-}
-
-/* ===== Responsive ajustes menores ===== */
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 1em;
-        margin-bottom: 1em;
-    }
-
-    .theme-toggle {
-        margin-top: 1em;
-    }
-}
-
-/* ===== Formulario cotización ===== */
-form {
-    max-width: 600px;
-    margin: 3em auto;
-    padding: 2em;
-    background-color: var(--color-claro);
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-form label {
-    display: block;
-    margin-bottom: 0.3em;
-    font-weight: bold;
-}
-
-form input,
-form textarea {
-    width: 100%;
-    padding: 0.75em;
-    margin-bottom: 1em;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1em;
-    background-color: #fff;
-    color: var(--color-texto);
-    transition: border 0.3s;
-}
-
-body.dark-mode form input,
-body.dark-mode form textarea {
-    background-color: #1e1e1e;
-    color: #eee;
-    border: 1px solid #555;
-}
-
-form input:focus,
-form textarea:focus {
-    outline: none;
-    border-color: var(--color-principal);
-}
-
-form .error-input {
-    border-color: red;
-}
-
-form button[type="submit"] {
-    background-color: var(--color-principal);
-    color: #fff;
-    border: none;
-    padding: 0.8em 1.5em;
-    font-size: 1em;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-form button:hover {
-    background-color: var(--color-hover);
-}
-/* ===== Grilla de productos ===== */
+/* ===== Grilla Productos Alternativa ===== */
 .grid-productos {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -363,119 +296,73 @@ body.dark-mode .producto-card {
     background-color: #1e1e1e;
     border: 1px solid #444;
 }
-.mapa-container {
-    width: 100%;
-    max-width: 900px;
-    margin: 2em auto;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
 
-.info-contacto {
-    max-width: 700px;
-    margin: 2em auto;
-    padding: 1.5em;
-    background-color: var(--color-claro);
-    border-radius: 8px;
-    box-shadow: 0 0 8px rgba(0,0,0,0.08);
-}
-
-body.dark-mode .info-contacto {
-    background-color: #1e1e1e;
-    border: 1px solid #333;
-}
-
-.info-contacto h3 {
-    margin-top: 1em;
-    color: var(--color-principal);
-}
-
-/* Loader básico */
-#loader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
-}
-
-/* Loader oculto (cuando la página carga) */
-#loader.hidden {
-    opacity: 0;
-    visibility: hidden;
-}
-
-/* Estilo del spinner */
-.spinner {
-    width: 60px;
-    height: 60px;
-    border: 6px solid #ccc;
-    border-top: 6px solid #c62828; /* Rojo corporativo */
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-/* Animación */
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
-}
-.llamanos {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    z-index: 999;
-}
-
-.btn-llamar {
-    background-color: #c62828;
-    color: white !important;
-    padding: 8px 14px;
-    border-radius: 5px;
-    margin-left: auto;
-    font-weight: bold;
-}
-
-.btn-llamar:hover {
-    background-color: #b71c1c;
-}
+/* ===== Formulario ===== */
 form {
     max-width: 600px;
-    margin: 0 auto;
+    margin: 3em auto;
+    padding: 2em;
+    background-color: var(--color-claro);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-input, select, textarea, button {
+form label {
+    font-weight: bold;
+}
+
+form input,
+form select,
+form textarea {
     padding: 10px;
     border: 1px solid #999;
     border-radius: 4px;
     font-size: 1rem;
+    background-color: #fff;
+    color: var(--color-texto);
+    transition: border 0.3s;
+}
+
+body.dark-mode form input,
+body.dark-mode form textarea {
+    background-color: #1e1e1e;
+    color: #eee;
+    border: 1px solid #555;
 }
 
 input:invalid, select:invalid {
-    border-color: #c62828;
+    border-color: var(--color-principal);
 }
 
 input:valid, select:valid {
     border-color: #4caf50;
 }
 
+form button[type="submit"] {
+    background-color: var(--color-principal);
+    color: #fff;
+    border: none;
+    padding: 0.8em 1.5em;
+    font-size: 1em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: var(--color-hover);
+}
+
 .estado {
     margin-top: 10px;
     font-weight: bold;
-    color: #c62828;
+    color: var(--color-principal);
 }
 
+/* ===== Popup ===== */
 .popup {
     position: fixed;
     top: 30%;
@@ -483,57 +370,7 @@ input:valid, select:valid {
     transform: translate(-50%, -30%);
     background-color: white;
     padding: 20px 30px;
-    border: 2px solid #c62828;
-    border-radius: 10px;
-    box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
-    z-index: 10000;
-    text-align: center;
-    max-width: 90%;
-    animation: aparecer 0.3s ease-out;
-}
-
-.popup p {
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
-.popup button {
-    padding: 8px 16px;
-    background-color: #c62828;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.popup button:hover {
-    background-color: #b71c1c;
-}
-
-.popup.hidden {
-    display: none;
-}
-
-@keyframes aparecer {
-    from {
-        opacity: 0;
-        transform: translate(-50%, -50%);
-    }
-    to {
-        opacity: 1;
-        transform: translate(-50%, -30%);
-    }
-}
-
-.popup {
-    position: fixed;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -30%);
-    background-color: white;
-    padding: 20px 30px;
-    border: 2px solid #c62828;
+    border: 2px solid var(--color-principal);
     border-radius: 10px;
     box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
     z-index: 9999;
@@ -542,6 +379,10 @@ input:valid, select:valid {
     animation: aparecer 0.3s ease-out;
 }
 
+.popup.hidden {
+    display: none;
+}
+
 .popup p {
     margin-bottom: 10px;
     font-weight: bold;
@@ -549,7 +390,7 @@ input:valid, select:valid {
 
 .popup button {
     padding: 8px 16px;
-    background-color: #c62828;
+    background-color: var(--color-principal);
     color: white;
     border: none;
     border-radius: 5px;
@@ -558,11 +399,7 @@ input:valid, select:valid {
 }
 
 .popup button:hover {
-    background-color: #b71c1c;
-}
-
-.popup.hidden {
-    display: none;
+    background-color: var(--color-hover);
 }
 
 @keyframes aparecer {
@@ -576,7 +413,7 @@ input:valid, select:valid {
     }
 }
 
-/* Estilo del botón flotante con tooltip */
+/* ===== WhatsApp flotante con Tooltip ===== */
 .whatsapp-wrapper {
     position: fixed;
     bottom: 20px;
@@ -606,14 +443,11 @@ input:valid, select:valid {
     transform: scale(1.1);
 }
 
-/* Tooltip */
 .tooltip {
     visibility: hidden;
     opacity: 0;
-    width: max-content;
     background-color: #333;
     color: #fff;
-    text-align: center;
     padding: 6px 10px;
     border-radius: 5px;
     position: absolute;
@@ -630,8 +464,67 @@ input:valid, select:valid {
     opacity: 1;
 }
 
+/* ===== Mapa e Información de Contacto ===== */
+.mapa-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 2em auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
 
+.info-contacto {
+    max-width: 700px;
+    margin: 2em auto;
+    padding: 1.5em;
+    background-color: var(--color-claro);
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.08);
+}
 
+body.dark-mode .info-contacto {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+}
 
+.info-contacto h3 {
+    margin-top: 1em;
+    color: var(--color-principal);
+}
 
+/* ===== Footer ===== */
+footer {
+    background-color: var(--color-footer);
+    color: #fff;
+    text-align: center;
+    padding: 2em 1em;
+}
 
+footer a {
+    color: #ff8a80;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #ffffff;
+}
+
+footer i {
+    margin-right: 0.5em;
+}
+
+/* ===== Responsive ajustes ===== */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1em;
+        margin-bottom: 1em;
+    }
+
+    .theme-toggle {
+        margin-top: 1em;
+    }
+}
