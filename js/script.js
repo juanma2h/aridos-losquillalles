@@ -91,3 +91,8 @@ if (form) {
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo);
     }
 }
+// Ocultar loader cuando todo carga
+window.addEventListener('load', () => {
+    const loader = document.getElementById('loader');
+    loader.classList.add('hidden');
+});
