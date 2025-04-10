@@ -447,5 +447,33 @@ body.dark-mode .info-contacto {
 .btn-llamar:hover {
     background-color: #b71c1c;
 }
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input, select, textarea, button {
+    padding: 10px;
+    border: 1px solid #999;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+input:invalid, select:invalid {
+    border-color: #c62828;
+}
+
+input:valid, select:valid {
+    border-color: #4caf50;
+}
+
+.estado {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #c62828;
+}
 
 
