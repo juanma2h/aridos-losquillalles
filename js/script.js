@@ -319,6 +319,6 @@ function cerrarPopup() {
 }
 
 // Test manual: podés quitar esto después de probar
- mostrarPopup("¡Probando el popup! 😄", "#2196f3");
+// mostrarPopup("¡Probando el popup! 😄", "#2196f3");
 
 
