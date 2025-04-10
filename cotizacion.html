@@ -11,7 +11,6 @@
   <meta name="author" content="Áridos Los Quillalles" />
   <meta name="robots" content="index, follow" />
 
-  <!-- Open Graph -->
   <meta property="og:title" content="Solicita tu Cotización - Áridos Los Quillalles" />
   <meta property="og:description" content="Completa el formulario y recibe tu cotización de forma rápida y directa." />
   <meta property="og:type" content="website" />
@@ -86,7 +85,7 @@
     <button onclick="cerrarPopup()">Cerrar</button>
   </div>
 
-  <!-- Botón flotante de WhatsApp con imagen y tooltip -->
+  <!-- Botón flotante de WhatsApp -->
   <div class="whatsapp-wrapper">
     <a href="https://wa.me/56988389703" class="whatsapp-float" target="_blank" title="Chatea con nosotros">
       <img src="images/whatsapp-icon.png" alt="WhatsApp">
@@ -94,15 +93,15 @@
     </a>
   </div>
 
-  <!-- EmailJS -->
+  <!-- EmailJS desde CDN -->
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
   <script>
     (function(){
-      emailjs.init("WJ1oIrcUkqHshX9Ff"); // <-- Reemplaza con tu User ID si es diferente
+      emailjs.init("WJ1oIrcUkqHshX9Ff"); // <-- Asegúrate de usar tu propio User ID
     })();
   </script>
 
-  <!-- SCRIPT GENERAL -->
+  <!-- Script de envío -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const form = document.getElementById("cotizacionForm");
@@ -115,36 +114,14 @@
           return;
         }
 
-        const data = {
-          nombre: document.getElementById("nombre").value,
-          correo: document.getElementById("correo").value,
-          telefono: document.getElementById("telefono").value,
-          producto: document.getElementById("producto").value,
-          mensaje: document.getElementById("mensaje").value,
-        };
-
-        const fecha = new Date().toLocaleString("es-CL");
-
-        // Primero guardamos en Google Sheets
-        fetch("https://aridos-form.vercel.app/api/save", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ ...data, fecha }),
-        })
-          .then((res) => res.json())
-          .then((res) => {
-            console.log("Guardado en Google Sheets ✅", res);
-
-            // Luego enviamos por EmailJS
-            return emailjs.sendForm('service_0wt64co', 'template_ggc0mnc', form);
-          })
+        emailjs.sendForm('service_0wt64co', 'template_ggc0mnc', form)
           .then(() => {
             mostrarPopup("✅ ¡Mensaje enviado correctamente!");
             form.reset();
           })
-          .catch((err) => {
-            console.error("❌ Error al guardar/enviar:", err);
-            mostrarPopup("❌ Ocurrió un error. Intenta nuevamente.", "#c62828");
+          .catch((error) => {
+            console.error("Error al enviar con EmailJS:", error);
+            mostrarPopup("❌ Ocurrió un error al enviar. Inténtalo de nuevo.", "#c62828");
           });
       });
     });
@@ -153,11 +130,9 @@
       const popup = document.getElementById("popup");
       const mensajeEl = document.getElementById("popup-message");
 
-      if (popup && mensajeEl) {
-        mensajeEl.textContent = mensaje;
-        mensajeEl.style.color = color;
-        popup.classList.remove("hidden");
-      }
+      mensajeEl.textContent = mensaje;
+      mensajeEl.style.color = color;
+      popup.classList.remove("hidden");
     }
 
     function cerrarPopup() {
