@@ -95,26 +95,27 @@
     }
 
     // Envío del formulario con EmailJS
-    document.addEventListener("DOMContentLoaded", function () {
-      const form = document.getElementById("cotizacionForm");
+  document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("cotizacionForm");
 
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-        if (form.checkValidity()) {
-          emailjs.sendForm('service_0wt64co', 'template_ggc0mnc', form) // ✅ Usa tu service y template
-            .then(function () {
-              mostrarPopup("✅ ¡Mensaje enviado correctamente!");
-              form.reset();
-            }, function (error) {
-              mostrarPopup("❌ Error al enviar. Inténtalo nuevamente.", "#c62828");
-              console.error(error);
-            });
-        } else {
-          mostrarPopup("❌ Por favor completa los campos obligatorios correctamente.", "#c62828");
-        }
-      });
-    });
+    if (form.checkValidity()) {
+      emailjs.sendForm('service_0wt64co', 'template_ggc0mnc', form)
+        .then(function () {
+          mostrarPopup("✅ ¡Mensaje enviado correctamente!");
+          form.reset();
+        }, function (error) {
+          mostrarPopup("❌ Error al enviar. Inténtalo nuevamente.", "#c62828");
+          console.error("Error EmailJS:", error);
+        });
+    } else {
+      mostrarPopup("❌ Por favor completa los campos obligatorios correctamente.", "#c62828");
+    }
+  });
+});
+
   </script>
 </body>
 </html>
