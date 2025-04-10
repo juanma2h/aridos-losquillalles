@@ -88,9 +88,25 @@ nav {
 
 nav ul {
     display: flex;
+    gap: 15px;
     list-style: none;
-    gap: 2em;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px;
+    background-color: #222; /* Fondo oscuro para contraste */
 }
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #c62828;
+}
+
 
 nav a {
     color: #fff;
@@ -421,12 +437,11 @@ body.dark-mode .info-contacto {
 
 .btn-llamar {
     background-color: #c62828;
-    color: #fff;
-    padding: 8px 15px;
+    color: white !important;
+    padding: 8px 14px;
     border-radius: 5px;
-    text-decoration: none;
+    margin-left: auto;
     font-weight: bold;
-    transition: background-color 0.3s ease;
 }
 
 .btn-llamar:hover {
