@@ -126,7 +126,42 @@
     }
   });
 });
-
   </script>
+  <script>
+  // Script para guardar datos en Google Sheets
+  const form = document.getElementById("cotizacionForm");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const data = {
+      nombre: document.getElementById("nombre").value,
+      correo: document.getElementById("correo").value,
+      telefono: document.getElementById("telefono").value,
+      producto: document.getElementById("producto").value,
+      mensaje: document.getElementById("mensaje").value,
+    };
+
+    // También guardamos la fecha automáticamente
+    const fecha = new Date().toLocaleString("es-CL");
+
+    fetch("https://aridos-form.vercel.app/api/save", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ ...data, fecha }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log("Guardado en Google Sheets ✅", res);
+        // ¡Sigue EmailJS y el popup normalmente!
+      })
+      .catch((err) => {
+        console.error("❌ Error al guardar en Sheets", err);
+      });
+  });
+</script>
+
 </body>
 </html>
