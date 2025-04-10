@@ -300,3 +300,25 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+function mostrarPopup(mensaje, color = "#4caf50") {
+    const popup = document.getElementById("popup");
+    const mensajeEl = document.getElementById("popup-message");
+
+    if (popup && mensajeEl) {
+        mensajeEl.textContent = mensaje;
+        mensajeEl.style.color = color;
+        popup.classList.remove("hidden");
+    } else {
+        console.error("Popup no encontrado en el DOM.");
+    }
+}
+
+function cerrarPopup() {
+    const popup = document.getElementById("popup");
+    if (popup) popup.classList.add("hidden");
+}
+
+// Test manual: podés quitar esto después de probar
+// mostrarPopup("¡Probando el popup! 😄", "#2196f3");
+
+
