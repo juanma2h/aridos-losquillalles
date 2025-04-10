@@ -124,4 +124,28 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('cotizacionForm');
+    const status = document.getElementById('form-status');
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        if (form.checkValidity()) {
+            emailjs.sendForm('gmail_service', 'template_cotizacion', form)
+                .then(function () {
+                    status.textContent = "✅ ¡Mensaje enviado correctamente!";
+                    status.style.color = "#4caf50";
+                    form.reset();
+                }, function (error) {
+                    status.textContent = "❌ Error al enviar. Inténtalo nuevamente.";
+                    status.style.color = "#c62828";
+                    console.error(error);
+                });
+        } else {
+            status.textContent = "❌ Por favor completa los campos obligatorios correctamente.";
+            status.style.color = "#c62828";
+        }
+    });
+});
 
