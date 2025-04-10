@@ -11,117 +11,107 @@
   <meta name="author" content="Áridos Los Quillalles" />
   <meta name="robots" content="index, follow" />
 
-  <!-- Etiquetas Open Graph (para redes sociales) -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Áridos Los Quillalles" />
   <meta property="og:description" content="Venta de arena, grava y más en Los Ángeles. Calidad y buen precio garantizado." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://juanma2h.github.io/aridos-losquillalles/" />
   <meta property="og:image" content="https://juanma2h.github.io/aridos-losquillalles/images/arena_fina.jpg" />
 
-  <!-- Favicon -->
   <link rel="icon" href="images/favicon.png" type="image/png" />
-
-  <!-- CSS -->
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
 <body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="activo">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="cotizacion.html">Cotización</a></li>
+        <li><a href="ubicacion.html">Ubicación</a></li>
+      </ul>
+    </nav>
+    <div class="llamanos">
+      <a href="tel:+56978422087" class="btn-llamar">📞 Llámanos</a>
+    </div>
+  </header>
 
-<!-- Loader animado -->
-<!--div id="loader"-->
-  <!--div class="spinner"></div-->
-<!--/div-->
+  <main class="fade-in">
+    <section id="intro">
+      <h1>Bienvenidos a Áridos Los Quillalles</h1>
+      <p>Venta de áridos de alta calidad en Los Ángeles, Chile. Arena, grava, relleno, escarpe, y más para todo tipo de construcciones. Calidad, responsabilidad y precios competitivos.</p>
+    </section>
 
-    <!-- <div id="loader">Cargando...</div> -->
-    
-    <!-- Loader -->
-    <!--div id="loader" class="loader"-->
-        <!--span>Cargando...</span-->
-    <!--/div-->
-
-    <!-- Header con toggle -->
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="productos.html">Productos</a></li>
-                <li><a href="cotizacion.html">Cotización</a></li>
-                <li><a href="ubicacion.html">Ubicación</a></li>
-                <!--li><a href="tel:+56978422087" class="btn-llamar">📞 Llámanos</a></li-->
-            </ul>
-            <!--button id="themeToggle" class="theme-toggle"-->
-                <!--🌙 Modo oscuro -->
-            <!--/button-->
-        </nav>
-        <div class="llamanos"> <a href="tel:+56978422087" class="btn-llamar">📞 Llámanos</a></div>
-
-    </header>
-
-    <!-- Contenido principal con animación -->
-    <main id="mainContent" class="fade-in">
-        <section id="intro">
-            <h1>Bienvenidos a Áridos Los Quillalles</h1>
-            <p>Venta de áridos de alta calidad en Los Ángeles, Chile. Ofrecemos productos como arena fina, grava, relleno, y más para todo tipo de construcción y proyectos.</p>
-        </section>
-
-        <section id="productos">
-            <h2>Productos Destacados</h2>
-            <div class="producto-container">
-                <div class="producto">
-                    <img src="images/arena_fina.webp" alt="Arena Fina">
-                    <h3>Arena Fina</h3>
-                    <p>Ideal para mezclas de concreto, filtración de agua y más.</p>
-                    <a href="productos.html#arena_fina">Ver más</a>
-                </div>
-                <div class="producto">
-                    <img src="images/arena_gruesa.webp" alt="Arena Gruesa">
-                    <h3>Arena Gruesa</h3>
-                    <p>Perfecta para cimientos y pavimentos.</p>
-                    <a href="productos.html#arena_gruesa">Ver más</a>
-                </div>
-                <div class="producto">
-                    <img src="images/relleno.webp" alt="Relleno">
-                    <h3>Relleno</h3>
-                    <p>Ideal para nivelación de terrenos y estabilización de suelos.</p>
-                    <a href="productos.html#relleno">Ver más</a>
-                </div>
-                <div class="producto">
-                    <img src="images/base_estabilizada.webp" alt="Base Estabilizada">
-                    <h3>Base Estabilizada</h3>
-                    <p>Para la construcción de carreteras y estructuras pesadas.</p>
-                    <a href="productos.html#base_estabilizada">Ver más</a>
-                </div>
-                <div class="producto">
-                    <img src="images/grava.webp" alt="Grava">
-                    <h3>Grava</h3>
-                    <p>Utilizada en mezclas de concreto de alta resistencia y construcción de infraestructuras.</p>
-                    <a href="productos.html#grava">Ver más</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div id="contacto">
-            <p><i class="fas fa-phone-alt"></i> <a href="tel:+56978422087">Llámanos</a></p>
-            <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/56988389703" target="_blank">WhatsApp</a></p>
+    <section id="productos">
+      <h2>Productos Destacados</h2>
+      <div class="producto-container">
+        <div class="producto">
+          <img src="images/arena_fina.webp" alt="Arena Fina">
+          <h3>Arena Fina</h3>
+          <p>Ideal para mezclas de concreto, filtración de agua, pavimentación y jardinería.</p>
+          <a href="productos.html#arena_fina">Ver más</a>
         </div>
-    </footer>
-  
-<!-- Botón flotante de WhatsApp con imagen y tooltip -->
-<div class="whatsapp-wrapper">
-  <a href="https://wa.me/56988389703" class="whatsapp-float" target="_blank" title="Chatea con nosotros">
-    <img src="images/whatsapp-icon.png" alt="WhatsApp">
-    <span class="tooltip">¿Tienes dudas? ¡Chatea con nosotros!</span>
-  </a>
-</div>
+        <div class="producto">
+          <img src="images/arena_gruesa.webp" alt="Arena Gruesa">
+          <h3>Arena Gruesa</h3>
+          <p>Perfecta para cimientos, pavimentos y mezclas resistentes.</p>
+          <a href="productos.html#arena_gruesa">Ver más</a>
+        </div>
+        <div class="producto">
+          <img src="images/relleno.webp" alt="Relleno">
+          <h3>Relleno</h3>
+          <p>Para nivelación de terrenos, estabilización de suelos y bases de caminos.</p>
+          <a href="productos.html#relleno">Ver más</a>
+        </div>
+        <div class="producto">
+          <img src="images/escarpe.webp" alt="Escarpe">
+          <h3>Escarpe</h3>
+          <p>Usado en relleno y emparejamiento de caminos o bases de cimientos.</p>
+          <a href="productos.html#escarpe">Ver más</a>
+        </div>
+        <div class="producto">
+          <img src="images/estabilizado_natural.webp" alt="Estabilizado Natural">
+          <h3>Estabilizado Natural</h3>
+          <p>Para obras de bajo impacto, pavimentos temporales o zonas con poco tráfico.</p>
+          <a href="productos.html#estabilizado_natural">Ver más</a>
+        </div>
+        <div class="producto">
+          <img src="images/base_estabilizada.webp" alt="Base Estabilizada">
+          <h3>Base Estabilizada</h3>
+          <p>Ideal para construcción de carreteras, estructuras pesadas y pavimentos.</p>
+          <a href="productos.html#base_estabilizada">Ver más</a>
+        </div>
+        <div class="producto">
+          <img src="images/grava.webp" alt="Grava">
+          <h3>Grava</h3>
+          <p>Utilizada en concreto de alta resistencia y grandes infraestructuras.</p>
+          <a href="productos.html#grava">Ver más</a>
+        </div>
+        <div class="producto">
+          <img src="images/gravilla.webp" alt="Gravilla">
+          <h3>Gravilla</h3>
+          <p>Ideal para caminos, drenajes y proyectos livianos de infraestructura.</p>
+          <a href="productos.html#gravilla">Ver más</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-  
-    <script src="js/scripts.js"></script>
-    
+  <footer>
+    <div id="contacto">
+      <p><a href="tel:+56978422087">📞 Llámanos</a></p>
+      <p><a href="https://wa.me/56988389703" target="_blank">💬 WhatsApp</a></p>
+    </div>
+  </footer>
 
+  <div class="whatsapp-wrapper">
+    <a href="https://wa.me/56988389703" class="whatsapp-float" target="_blank" title="Chatea con nosotros">
+      <img src="images/whatsapp-icon.png" alt="WhatsApp">
+      <span class="tooltip">¿Tienes dudas? ¡Chatea con nosotros!</span>
+    </a>
+  </div>
 
-
+  <script src="js/scripts.js"></script>
 </body>
 </html>
