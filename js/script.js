@@ -96,3 +96,32 @@ window.addEventListener('load', () => {
     const loader = document.getElementById('loader');
     loader.classList.add('hidden');
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('cotizacionForm');
+    const status = document.getElementById('form-status');
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault(); // Prevenir envío si hay errores
+
+        if (form.checkValidity()) {
+            status.textContent = "✅ ¡Formulario válido! (Acá podrías enviarlo por email o guardarlo)";
+            status.style.color = "#4caf50";
+
+            // Acá podrías usar EmailJS, PHP, o lo que quieras para procesarlo realmente
+        } else {
+            status.textContent = "❌ Por favor completa los campos obligatorios correctamente.";
+            status.style.color = "#c62828";
+        }
+    });
+
+    // Validación en vivo
+    const campos = form.querySelectorAll('input, select');
+    campos.forEach(campo => {
+        campo.addEventListener('input', () => {
+            campo.classList.remove('error');
+            status.textContent = '';
+        });
+    });
+});
+
