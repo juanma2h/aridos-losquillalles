@@ -86,10 +86,69 @@
     <button onclick="cerrarPopup()">Cerrar</button>
   </div>
 
-  <!-- JS -->
-  <script src="js/scripts.js"></script>
+  <!-- Botón flotante de WhatsApp con imagen y tooltip -->
+  <div class="whatsapp-wrapper">
+    <a href="https://wa.me/56988389703" class="whatsapp-float" target="_blank" title="Chatea con nosotros">
+      <img src="images/whatsapp-icon.png" alt="WhatsApp">
+      <span class="tooltip">¿Tienes dudas? ¡Chatea con nosotros!</span>
+    </a>
+  </div>
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
   <script>
-    // Popup
+    (function(){
+      emailjs.init("WJ1oIrcUkqHshX9Ff"); // <-- Reemplaza con tu User ID si es diferente
+    })();
+  </script>
+
+  <!-- SCRIPT GENERAL -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById("cotizacionForm");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        if (!form.checkValidity()) {
+          mostrarPopup("❌ Por favor completa los campos obligatorios correctamente.", "#c62828");
+          return;
+        }
+
+        const data = {
+          nombre: document.getElementById("nombre").value,
+          correo: document.getElementById("correo").value,
+          telefono: document.getElementById("telefono").value,
+          producto: document.getElementById("producto").value,
+          mensaje: document.getElementById("mensaje").value,
+        };
+
+        const fecha = new Date().toLocaleString("es-CL");
+
+        // Primero guardamos en Google Sheets
+        fetch("https://aridos-form.vercel.app/api/save", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ ...data, fecha }),
+        })
+          .then((res) => res.json())
+          .then((res) => {
+            console.log("Guardado en Google Sheets ✅", res);
+
+            // Luego enviamos por EmailJS
+            return emailjs.sendForm('service_0wt64co', 'template_ggc0mnc', form);
+          })
+          .then(() => {
+            mostrarPopup("✅ ¡Mensaje enviado correctamente!");
+            form.reset();
+          })
+          .catch((err) => {
+            console.error("❌ Error al guardar/enviar:", err);
+            mostrarPopup("❌ Ocurrió un error. Intenta nuevamente.", "#c62828");
+          });
+      });
+    });
+
     function mostrarPopup(mensaje, color = "#4caf50") {
       const popup = document.getElementById("popup");
       const mensajeEl = document.getElementById("popup-message");
@@ -104,74 +163,6 @@
     function cerrarPopup() {
       document.getElementById("popup").classList.add("hidden");
     }
-
-    // Envío del formulario con EmailJS
-  document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("cotizacionForm");
-
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    if (form.checkValidity()) {
-      emailjs.sendForm('service_0wt64co', 'template_ggc0mnc', form)
-        .then(function () {
-          mostrarPopup("✅ ¡Mensaje enviado correctamente!");
-          form.reset();
-        }, function (error) {
-          mostrarPopup("❌ Error al enviar. Inténtalo nuevamente.", "#c62828");
-          console.error("Error EmailJS:", error);
-        });
-    } else {
-      mostrarPopup("❌ Por favor completa los campos obligatorios correctamente.", "#c62828");
-    }
-  });
-});
   </script>
-  <script>
-  // Script para guardar datos en Google Sheets
-  const form = document.getElementById("cotizacionForm");
-
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const data = {
-      nombre: document.getElementById("nombre").value,
-      correo: document.getElementById("correo").value,
-      telefono: document.getElementById("telefono").value,
-      producto: document.getElementById("producto").value,
-      mensaje: document.getElementById("mensaje").value,
-    };
-
-    // También guardamos la fecha automáticamente
-    const fecha = new Date().toLocaleString("es-CL");
-
-    fetch("https://aridos-form.vercel.app/api/save", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ ...data, fecha }),
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        console.log("Guardado en Google Sheets ✅", res);
-        // ¡Sigue EmailJS y el popup normalmente!
-      })
-      .catch((err) => {
-        console.error("❌ Error al guardar en Sheets", err);
-      });
-  });
-</script>
-
-<!-- Botón flotante de WhatsApp con imagen y tooltip -->
-<div class="whatsapp-wrapper">
-  <a href="https://wa.me/56988389703" class="whatsapp-float" target="_blank" title="Chatea con nosotros">
-    <img src="images/whatsapp-icon.png" alt="WhatsApp">
-    <span class="tooltip">¿Tienes dudas? ¡Chatea con nosotros!</span>
-  </a>
-</div>
-
-
-
 </body>
 </html>
