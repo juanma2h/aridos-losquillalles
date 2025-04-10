@@ -11,20 +11,11 @@
   <meta name="author" content="Áridos Los Quillalles" />
   <meta name="robots" content="index, follow" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Dónde estamos - Áridos Los Quillalles" />
-  <meta property="og:description" content="Conoce nuestra ubicación y visítanos directamente en Curanadú, Los Ángeles." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://juanma2h.github.io/aridos-losquillalles/ubicacion.html" />
-  <meta property="og:image" content="https://juanma2h.github.io/aridos-losquillalles/images/mapa.jpg" />
-
   <link rel="icon" href="images/favicon.png" type="image/png" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
 <body>
-
-  <!-- Header -->
   <header>
     <nav>
       <ul>
@@ -39,49 +30,51 @@
     </div>
   </header>
 
-  <!-- Contenido principal -->
-  <main class="fade-in">
-    <section id="ubicacion">
+  <main class="fade-in" id="ubicacion">
+    <section id="intro">
       <h1>¿Dónde estamos?</h1>
       <p>Encuéntranos fácilmente en la Región del Biobío. Estamos ubicados en una zona estratégica para distribución rápida.</p>
+    </section>
 
-      <div class="ubicacion-info">
-        <div class="direccion">
-          <h2>Dirección</h2>
-          <p>
-            Ruta 5 Sur, km 495<br>
-            Las Hijuela Curanadu, Región del Biobío.<br>
-            <em>También conocido como <strong>Rancho Curanadu</strong>.</em>
-          </p>
-          <a class="btn-mapa" href="https://www.google.com/maps?q=-37.348647971979375,-72.37223228872689" target="_blank">
-            📍 Abrir en Google Maps
-          </a>
-        </div>
-
-        <div class="mapa-container">
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3171.7406625140693!2d-72.37223228872689!3d-37.348647971979375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzfCsDIwJzU1LjEiUyA3MsKwMjInMTAuOCJX!5e0!3m2!1ses-419!2scl!4v1744298449046!5m2!1ses-419!2scl"
-            width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
+    <section class="ubicacion-info">
+      <div class="direccion">
+        <h2>Dirección</h2>
+        <p>
+          Ruta 5 Sur, km 495, Las Hijuela Curanadu, Región del Biobío. <br />
+          También conocido como <strong>Rancho Curanadu</strong>.
+        </p>
+        <a href="https://www.google.com/maps?q=-37.348647971979375,-72.37223228872689" target="_blank" class="btn-mapa">
+          Ver en Google Maps
+        </a>
       </div>
 
-      <div class="info-contacto">
-        <h3>Horarios de Atención</h3>
-        <ul>
-          <li><strong>Lunes a Viernes:</strong> 08:00 – 18:00 hrs</li>
-          <li><strong>Sábados:</strong> 08:00 – 13:00 hrs</li>
-          <li><strong>Domingo:</strong> Cerrado</li>
-        </ul>
-
-        <h3>Teléfono & WhatsApp</h3>
-        <p><a href="tel:+56978422087">📞 +56 9 7842 2087</a></p>
-        <p><a href="https://wa.me/56988389703" target="_blank">💬 +56 9 8838 9703</a></p>
+      <div class="mapa-container">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3171.7406625140693!2d-72.37223228872689!3d-37.348647971979375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzfCsDIwJzU1LjEiUyA3MsKwMjInMTAuOCJX!5e0!3m2!1ses-419!2scl!4v1744298449046!5m2!1ses-419!2scl" 
+          width="100%" 
+          height="400" 
+          style="border:0; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.15);" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
       </div>
     </section>
+
+    <div class="info-contacto">
+      <h3>Horarios de Atención</h3>
+      <ul>
+        <li><strong>Lunes a Viernes:</strong> 08:00 – 18:00 hrs</li>
+        <li><strong>Sábados:</strong> 08:00 – 13:00 hrs</li>
+        <li><strong>Domingo:</strong> Cerrado</li>
+      </ul>
+
+      <h3>Teléfono & WhatsApp</h3>
+      <p><a href="tel:+56978422087">📞 +56 9 7842 2087</a></p>
+      <p><a href="https://wa.me/56988389703" target="_blank">💬 +56 9 8838 9703</a></p>
+    </div>
   </main>
 
-  <!-- Footer -->
   <footer>
     <div id="contacto">
       <p><i class="fas fa-phone-alt"></i> <a href="tel:+56978422087">Llámanos</a></p>
@@ -89,13 +82,11 @@
     </div>
   </footer>
 
-  <!-- Botón flotante de WhatsApp -->
   <div class="whatsapp-wrapper">
     <a href="https://wa.me/56988389703" class="whatsapp-float" target="_blank" title="Chatea con nosotros">
       <img src="images/whatsapp-icon.png" alt="WhatsApp">
       <span class="tooltip">¿Tienes dudas? ¡Chatea con nosotros!</span>
     </a>
   </div>
-
 </body>
 </html>
