@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Productos áridos de alta calidad para proyectos de construcción. Arena, grava, relleno, y más.">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Explora los productos disponibles en Áridos Los Quillalles.">
     <title>Productos - Áridos Los Quillalles</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
+
+    <!-- Loader -->
+    <div id="loader" class="loader">
+        <span>Cargando...</span>
+    </div>
+
     <!-- Header -->
     <header>
         <nav>
@@ -17,106 +23,66 @@
                 <li><a href="cotizacion.html">Cotización</a></li>
                 <li><a href="ubicacion.html">Ubicación</a></li>
             </ul>
+            <button id="themeToggle" class="theme-toggle">🌙 Modo oscuro</button>
         </nav>
     </header>
 
-    <section id="productos_detalle">
-        <h1>Productos de Áridos Los Quillalles</h1>
-        
-        <div class="producto_detalle" id="arena_fina">
-            <h2>Arena Fina</h2>
-            <img src="images/arena_fina.jpg" alt="Arena Fina">
-            <p>La arena fina es ideal para mezclas de concreto, filtración de agua y pavimentación. También es perfecta para jardinería y otros usos decorativos.</p>
-            <ul>
-                <li>Mezclas de concreto</li>
-                <li>Filtración de agua</li>
-                <li>Pavimentación</li>
-                <li>Jardinería</li>
-            </ul>
-        </div>
+    <!-- Contenido principal -->
+    <main class="fade-in">
+        <section id="intro">
+            <h1>Nuestros Productos</h1>
+            <p>Conoce la variedad de áridos que ofrecemos para tus proyectos de construcción, paisajismo y más.</p>
+        </section>
 
-        <div class="producto_detalle" id="arena_gruesa">
-            <h2>Arena Gruesa</h2>
-            <img src="images/arena_gruesa.jpg" alt="Arena Gruesa">
-            <p>La arena gruesa es ideal para la construcción de cimientos, pavimentos y otros proyectos de construcción que requieren una mayor resistencia.</p>
-            <ul>
-                <li>Construcción de cimientos</li>
-                <li>Mezclas de concreto</li>
-                <li>Pavimentos</li>
-            </ul>
-        </div>
+        <section id="productos" class="grid-productos">
+            <!-- Producto -->
+            <article class="producto-card" id="arena_fina">
+                <img src="images/arena_fina.webp" alt="Arena Fina">
+                <div class="info">
+                    <h2>Arena Fina</h2>
+                    <p>Ideal para mezclas de concreto, filtración de agua y acabados delicados.</p>
+                </div>
+            </article>
 
-        <div class="producto_detalle" id="relleno">
-            <h2>Relleno</h2>
-            <img src="images/relleno.jpg" alt="Relleno">
-            <p>Utilizado para nivelación de terrenos y estabilización de suelos, este producto es perfecto para obras de infraestructura y construcción.</p>
-            <ul>
-                <li>Nivelación de terrenos</li>
-                <li>Estabilización de suelos</li>
-                <li>Base para pavimentos y carreteras</li>
-            </ul>
-        </div>
+            <article class="producto-card" id="arena_gruesa">
+                <img src="images/arena_gruesa.webp" alt="Arena Gruesa">
+                <div class="info">
+                    <h2>Arena Gruesa</h2>
+                    <p>Perfecta para cimientos, pisos y obras estructurales.</p>
+                </div>
+            </article>
 
-        <div class="producto_detalle" id="escarpe">
-            <h2>Escarpe</h2>
-            <img src="images/escarpe.jpg" alt="Escarpe">
-            <p>Perfecto para el relleno de caminos y la base de cimentación, el escarpe es un material versátil para diferentes proyectos de construcción.</p>
-            <ul>
-                <li>Relleno de camino</li>
-                <li>Base de cimientos</li>
-                <li>Emparejamiento de caminos</li>
-            </ul>
-        </div>
+            <article class="producto-card" id="relleno">
+                <img src="images/relleno.webp" alt="Relleno">
+                <div class="info">
+                    <h2>Relleno</h2>
+                    <p>Usado para nivelación de terrenos, soporte y compactación.</p>
+                </div>
+            </article>
 
-        <div class="producto_detalle" id="estabilizado_natural">
-            <h2>Estabilizado Natural</h2>
-            <img src="images/estabilizado_natural.jpg" alt="Estabilizado Natural">
-            <p>Este material es ideal para obras de bajo impacto, pavimentos temporales y áreas con poco tráfico.</p>
-            <ul>
-                <li>Obras de bajo impacto</li>
-                <li>Base para áreas con poco tráfico</li>
-                <li>Pavimentos temporales</li>
-            </ul>
-        </div>
+            <article class="producto-card" id="base_estabilizada">
+                <img src="images/base_estabilizada.webp" alt="Base Estabilizada">
+                <div class="info">
+                    <h2>Base Estabilizada</h2>
+                    <p>Ideal para construcción de caminos y fundaciones resistentes.</p>
+                </div>
+            </article>
 
-        <div class="producto_detalle" id="base_estabilizada">
-            <h2>Base Estabilizada</h2>
-            <img src="images/base_estabilizada.jpg" alt="Base Estabilizada">
-            <p>La base estabilizada se usa en la construcción de carreteras, pavimentos y estructuras de soporte pesado.</p>
-            <ul>
-                <li>Construcción de carreteras</li>
-                <li>Pavimentos</li>
-                <li>Estructuras de soporte pesado</li>
-            </ul>
-        </div>
+            <article class="producto-card" id="grava">
+                <img src="images/grava.webp" alt="Grava">
+                <div class="info">
+                    <h2>Grava</h2>
+                    <p>Excelente para hormigón, drenajes y superficies exteriores.</p>
+                </div>
+            </article>
+        </section>
+    </main>
 
-        <div class="producto_detalle" id="grava">
-            <h2>Grava</h2>
-            <img src="images/grava.jpg" alt="Grava">
-            <p>Utilizada en mezclas de concreto de alta resistencia y en la construcción de infraestructuras, la grava es esencial para grandes proyectos.</p>
-            <ul>
-                <li>Mezclas de concreto de alta resistencia</li>
-                <li>Construcción de infraestructuras</li>
-                <li>Fundaciones de grandes estructuras</li>
-            </ul>
-        </div>
-
-        <div class="producto_detalle" id="gravilla">
-            <h2>Gravilla</h2>
-            <img src="images/gravilla.jpg" alt="Gravilla">
-            <p>Ideal para la construcción de caminos y drenaje de aguas pluviales, la gravilla es un material versátil y accesible.</p>
-            <ul>
-                <li>Construcción de caminos</li>
-                <li>Drenaje de aguas pluviales</li>
-                <li>Proyectos de infraestructura liviana</li>
-            </ul>
-        </div>
-    </section>
-
+    <!-- Footer -->
     <footer>
         <div id="contacto">
-            <p>Contáctanos: <a href="tel:+56978422087">Llámanos</a></p>
-            <p><a href="https://wa.me/56988389703" target="_blank">WhatsApp</a></p>
+            <p><i class="fas fa-phone-alt"></i> <a href="tel:+56978422087">Llámanos</a></p>
+            <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/56988389703" target="_blank">WhatsApp</a></p>
         </div>
     </footer>
 
