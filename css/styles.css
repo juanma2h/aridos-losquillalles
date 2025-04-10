@@ -412,4 +412,25 @@ body.dark-mode .info-contacto {
         transform: rotate(360deg);
     }
 }
+.llamanos {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    z-index: 999;
+}
+
+.btn-llamar {
+    background-color: #c62828;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-llamar:hover {
+    background-color: #b71c1c;
+}
+
 
