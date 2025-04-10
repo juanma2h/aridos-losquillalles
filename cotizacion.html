@@ -41,23 +41,36 @@
             <p>Completa el formulario y te responderemos lo antes posible con toda la información necesaria para tu proyecto.</p>
         </section>
 
-        <section>
-            <form id="form-cotizacion">
-                <label for="nombre">Nombre completo:</label>
-                <input type="text" id="nombre" name="nombre" required>
+        <section id="formulario-cotizacion">
+    <h1>Solicita tu Cotización</h1>
+    <form id="cotizacionForm" novalidate>
+        <label for="nombre">Nombre completo *</label>
+        <input type="text" id="nombre" name="nombre" required>
 
-                <label for="correo">Correo electrónico:</label>
-                <input type="email" id="correo" name="correo" required>
+        <label for="correo">Correo electrónico *</label>
+        <input type="email" id="correo" name="correo" required>
 
-                <label for="telefono">Teléfono:</label>
-                <input type="tel" id="telefono" name="telefono" required>
+        <label for="telefono">Teléfono *</label>
+        <input type="tel" id="telefono" name="telefono" required>
 
-                <label for="mensaje">Mensaje o tipo de producto que necesitas:</label>
-                <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+        <label for="producto">Producto *</label>
+        <select id="producto" name="producto" required>
+            <option value="">Seleccione un producto</option>
+            <option value="arena_fina">Arena Fina</option>
+            <option value="grava">Grava</option>
+            <option value="relleno">Relleno</option>
+            <option value="estabilizado">Estabilizado Natural</option>
+            <!-- agrega más según lo que ofrezcas -->
+        </select>
 
-                <button type="submit">Enviar cotización</button>
-            </form>
-        </section>
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Agrega detalles adicionales..."></textarea>
+
+        <button type="submit">Enviar</button>
+        <p id="form-status" class="estado"></p>
+    </form>
+</section>
+
     </main>
 
     <!-- Footer -->
