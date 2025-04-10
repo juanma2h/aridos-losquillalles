@@ -14,7 +14,7 @@
   <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script>
     (function() {
-      emailjs.init("tBNE5p58H6EoB-ZnL"); // Tu public key
+      emailjs.init("tBNE5p58H6EoB-ZnL"); // Public key
     })();
   </script>
 
@@ -58,9 +58,13 @@
         <select id="producto" name="producto" required>
           <option value="">Seleccione un producto</option>
           <option value="arena_fina">Arena Fina</option>
-          <option value="grava">Grava</option>
+          <option value="arena_gruesa">Arena Gruesa</option>
           <option value="relleno">Relleno</option>
-          <option value="estabilizado">Estabilizado Natural</option>
+          <option value="escarpe">Escarpe</option>
+          <option value="estabilizado_natural">Estabilizado Natural</option>
+          <option value="base_estabilizada">Base Estabilizada</option>
+          <option value="grava">Grava</option>
+          <option value="gravilla">Gravilla</option>
         </select>
 
         <label for="mensaje">Mensaje</label>
@@ -94,22 +98,18 @@
 
   <!-- Scripts -->
   <script>
-    // Mostrar popup
     function mostrarPopup(mensaje, color = "#4caf50") {
       const popup = document.getElementById("popup");
       const mensajeEl = document.getElementById("popup-message");
-
       mensajeEl.textContent = mensaje;
       mensajeEl.style.color = color;
       popup.classList.remove("hidden");
     }
 
     function cerrarPopup() {
-      const popup = document.getElementById("popup");
-      popup.classList.add("hidden");
+      document.getElementById("popup").classList.add("hidden");
     }
 
-    // Envío con EmailJS
     document.addEventListener("DOMContentLoaded", function () {
       const form = document.getElementById("cotizacionForm");
 
@@ -133,6 +133,5 @@
       });
     });
   </script>
-
 </body>
 </html>
