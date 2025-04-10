@@ -347,3 +347,30 @@ body.dark-mode .producto-card {
     background-color: #1e1e1e;
     border: 1px solid #444;
 }
+.mapa-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 2em auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.info-contacto {
+    max-width: 700px;
+    margin: 2em auto;
+    padding: 1.5em;
+    background-color: var(--color-claro);
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.08);
+}
+
+body.dark-mode .info-contacto {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+}
+
+.info-contacto h3 {
+    margin-top: 1em;
+    color: var(--color-principal);
+}
